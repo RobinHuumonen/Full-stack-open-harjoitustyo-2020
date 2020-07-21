@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#username {
+  background: #F7F9F9;
+}
+
+#password {
+  background: #F7F9F9;
+}
+
+.blue-box-button {
+  background: #5DADE2;
+  width: 177px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+}
+
+.black-text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.blue-text-button {
+  border: none;
+  background-color: inherit;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5DADE2;
+
+  text-align: center;
+}
+
+.h1-heading {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.center {
+  text-align: center;
+}
+
+.log-in-and-sign-up-block {
+  margin: auto;
+  width: 600px;
+  height: 700px;
+  background: #FDFEFE;
+}
+
+#about-button {
+  text-align: center;
+  margin-top: 180px;
+}
