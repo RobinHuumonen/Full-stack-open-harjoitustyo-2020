@@ -7,4 +7,10 @@ const Heading = () => {
   )
 }
 
+export const Heading2 = () => {
+  return (
+    <h2 className="h2-heading">Recipet</h2>
+  )
+}
+
 export default Heading

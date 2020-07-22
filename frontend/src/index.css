@@ -1,10 +1,5 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #F7F9F9
 }
 
 code {
@@ -63,6 +58,23 @@ code {
   color: #000000;
 }
 
+.h2-heading {
+  position: absolute;
+  width: 97px;
+  height: 29px;
+  left: 10px;
+  top: 15px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  
+  color: #000000;
+}
+
 .center {
   text-align: center;
 }
@@ -75,7 +87,90 @@ code {
 }
 
 #about-button {
+  background-color: inherit;
   text-align: center;
   position: relative;
-  top: 380px;
+  top: 75%;
+}
+
+.top-block {
+  width: 100%;
+  height: 100px;
+  left: 0px;
+  top: 0px;
+
+  background: #FDFEFE;
+}
+
+.search-input {
+  text-align: center;
+  margin-top: 20px;
+  width: 208px;
+  height: 30px;
+  
+  background: #F7F9F9;
+}
+
+#log-out-button {
+  background: #5DADE2;
+  width: 102px;
+  height: 35px;
+  position: absolute;
+  top: 2.5%;
+  left: 85%;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+}
+
+.logged-in-block {
+  width: 100%;
+  height: 100px;
+  background: #F7F9F9;
+}
+
+.h3-heading {
+  position: absolute;
+  width: 137px;
+  height: 22px;
+  left: 10px;
+  top: 99px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  
+}
+
+.recipes {
+position: absolute;
+left: 10px;
+top: 144px;
+}
+
+#upload-button {
+  position: absolute;
+  width: 218px;
+  height: 35px;
+  left: 845px;
+  top: 110px;
+
+  background: #5DADE2;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
 }
