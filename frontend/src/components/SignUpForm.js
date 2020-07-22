@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '../index.css'
 
-const LoginForm = ({
+const SignUpForm = ({
   handleSubmit,
   handleUsernameChange,
   handlePasswordChange,
@@ -29,13 +29,13 @@ const LoginForm = ({
               onChange={handlePasswordChange}
             />
           </div>
-        <button id="login-button" className="blue-box-button" type="submit">Log In</button>
+        <button id="login-button" className="blue-box-button" type="submit">Sign Up</button>
       </form>
     </div>
   )
 }
 
-LoginForm.propTypes = {
+SignUpForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleUsernameChange: PropTypes.func.isRequired,
   handlePasswordChange: PropTypes.func.isRequired,
@@ -43,4 +43,4 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired
 }
 
-export default LoginForm
+export default SignUpForm

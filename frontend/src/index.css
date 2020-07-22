@@ -12,11 +12,8 @@ code {
     monospace;
 }
 
-#username {
-  background: #F7F9F9;
-}
 
-#password {
+.grey-input {
   background: #F7F9F9;
 }
 
@@ -72,12 +69,13 @@ code {
 
 .log-in-and-sign-up-block {
   margin: auto;
-  width: 600px;
-  height: 700px;
+  width: 400px;
+  height: 500px;
   background: #FDFEFE;
 }
 
 #about-button {
   text-align: center;
-  margin-top: 180px;
+  position: relative;
+  top: 380px;
 }

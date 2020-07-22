@@ -7,6 +7,7 @@ import {
   Switch, Route, Link
 } from "react-router-dom"
 import LogInBlock from './components/LogInBlock'
+import SignUpBlock from './components/SignUpBlock'
 import About from './components/About'
 
 const Canvas = styled.div`
@@ -22,7 +23,8 @@ const App = () => {
     <>
       <Canvas>
         <Router>
-        <LogInBlock/>
+        {/* <LogInBlock/> */}
+        <SignUpBlock/>
         </Router>
         <div id="about-button">
           <About/>
