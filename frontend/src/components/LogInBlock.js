@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Heading from './Heading'
-import LoginForm from './LoginForm'
+import UserForm from './UserForm'
 import SignUpLink from './SignUpLink'
+import './LogInBlock.css'
 
 const LogInBlock = () => {
   const [username, setUsername] = useState('')
@@ -15,17 +16,21 @@ const LogInBlock = () => {
   }
 
   return (
-    <div className="log-in-and-sign-up-block">
+    <div>
+      <div className="log-in-and-sign-up-block">
       <Heading/>
-      <LoginForm
+      <UserForm
         username={username}
         password={password}
         handleUsernameChange={({ target }) => setUsername(target.value)}
         handlePasswordChange={({ target }) => setPassword(target.value)}
         handleSubmit={handleLogin}
+        buttonText="Log In"
       />
       <SignUpLink/>
     </div>
+    </div>
+    
   )
 }
 

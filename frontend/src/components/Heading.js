@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css'
+import './Heading.css'
 
 const Heading = () => {
   return (
@@ -10,6 +10,12 @@ const Heading = () => {
 export const Heading2 = () => {
   return (
     <h2 className="h2-heading">Recipet</h2>
+  )
+}
+
+export const Heading3 = () => {
+  return (
+    <h2 className="h3-heading">About</h2>
   )
 }
 

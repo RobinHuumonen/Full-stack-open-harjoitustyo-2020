@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Heading from './Heading'
-import SignUpForm from './SignUpForm'
+import UserForm from './UserForm'
+import './SignUpBlock.css'
 
 const SignUpBlock = () => {
   const [username, setUsername] = useState('')
@@ -16,12 +17,13 @@ const SignUpBlock = () => {
   return (
     <div className="log-in-and-sign-up-block">
       <Heading/>
-      <SignUpForm
+      <UserForm
         username={username}
         password={password}
         handleUsernameChange={({ target }) => setUsername(target.value)}
         handlePasswordChange={({ target }) => setPassword(target.value)}
         handleSubmit={handleAccountCreation}
+        buttonText="Sign Up"
       />
     </div>
   )

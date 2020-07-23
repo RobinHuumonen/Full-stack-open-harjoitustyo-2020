@@ -1,0 +1,25 @@
+.center {
+  text-align: center;
+}
+
+.black-text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.blue-text-button {
+  border: none;
+  background-color: inherit;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5DADE2;
+
+  text-align: center;
+}

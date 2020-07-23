@@ -1,11 +1,11 @@
 import React from 'react'
-import '../index.css'
+import './LoggedInUser.css'
 
 const LoggedInUser = () => {
   return (
     <div>
-      <h3 className="h3-heading">props.user.username</h3>
-      <p className="recipes">props.user.recipes</p>
+      <h3 id="h3-heading">props.user.username</h3>
+      <p id="hasRecipes">props.user.recipes</p>
     </div>
     
   )

@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../index.css'
+import './UserForm.css'
 
-const SignUpForm = ({
+const UserForm = ({
   handleSubmit,
   handleUsernameChange,
   handlePasswordChange,
   username,
-  password
+  password,
+  buttonText
 }) => {
   return (
     <div className="center">
@@ -29,13 +30,13 @@ const SignUpForm = ({
               onChange={handlePasswordChange}
             />
           </div>
-        <button id="login-button" className="blue-box-button" type="submit">Sign Up</button>
+        <button id="login-button" className="blue-box-button" type="submit">{buttonText}</button>
       </form>
     </div>
   )
 }
 
-SignUpForm.propTypes = {
+UserForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleUsernameChange: PropTypes.func.isRequired,
   handlePasswordChange: PropTypes.func.isRequired,
@@ -43,4 +44,4 @@ SignUpForm.propTypes = {
   password: PropTypes.string.isRequired
 }
 
-export default SignUpForm
+export default UserForm

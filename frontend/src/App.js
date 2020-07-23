@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import axios from 'axios'
-import './index.css'
+import './App.css'
 
 import {
   BrowserRouter as Router,
@@ -11,6 +11,7 @@ import SignUpBlock from './components/SignUpBlock'
 import Recipes from './components/Recipes'
 import LoggedInBlock from './components/LoggedInBlock'
 import About from './components/About'
+import Footer from './components/Footer'
 import TopBlock from './components/TopBlock'
 
 const App = () => {
@@ -18,25 +19,28 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('https://picsum.photos/v2/list')
+      .get('http://localhost:3001/recipes')
       .then(response => {
         setRecipes(response.data)
       })
   }, [])
 
+  const renderAbout = true
+
   return (
-    <>
-        <Router>
-        {/* <LogInBlock/> */}
-        {/* <SignUpBlock/> */}
-        <TopBlock/>
-        <LoggedInBlock/>
-        <Recipes recipes={recipes}/>
-        </Router>
-{/*         <div id="about-button">
-          <About/>
-        </div> */}
-    </>
+    <div className="page-container">
+      <div className="content-wrap">
+          <Router>
+          {/*<LogInBlock/>*/}
+           {/*<SignUpBlock/>*/}
+            <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn"/>
+            <About/>
+{/*             <LoggedInBlock/>
+            <Recipes recipes={recipes}/> */}
+          </Router>
+        </div>
+        <Footer/>
+    </div>
   )
 }
 

@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
 import { Heading2 } from './Heading'
+import { Heading3 } from './Heading'
 import Search from './Search'
 import Button from './Button'
 
-import '../index.css'
+import './TopBlock.css'
 
-const TopBlock = () => {
+const TopBlock = (props) => {
 const [search, setSearch] = useState('')
 
 const handleSearchChange = () => {
   return null
+}
+
+if (props.renderAbout) {
+  return (
+    <div className="top-block">
+      <Heading2/>
+      <Heading3/>
+      <Button id="log-out-button" text={props.buttonText} />
+    </div>
+  )
 }
 
 return (

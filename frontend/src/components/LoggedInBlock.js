@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css'
+import './LoggedInBlock.css'
 import LoggedInUser from './LoggedInUser'
 import Button from './Button'
 
@@ -7,7 +7,7 @@ import Button from './Button'
 const LoggedInBlock = () => {
 
 return (
-  <div className="logged-in-block">
+  <div id="logged-in-block">
     <LoggedInUser/>
     <Button id="upload-button" text="Upload Recipe"/>
   </div>
