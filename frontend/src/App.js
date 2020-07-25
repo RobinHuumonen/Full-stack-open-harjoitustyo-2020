@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import recipeService from './services/recipeService'
+
 
 import {
   BrowserRouter as Router,
@@ -18,10 +20,10 @@ const App = () => {
   const [recipes, setRecipes] = useState([]) 
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/recipes')
-      .then(response => {
-        setRecipes(response.data)
+    recipeService
+      .getAll()
+      .then(initialRecipes => {
+        setRecipes(initialRecipes)
       })
   }, [])
 
@@ -34,9 +36,9 @@ const App = () => {
           {/*<LogInBlock/>*/}
            {/*<SignUpBlock/>*/}
             <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn"/>
-            <About/>
-{/*             <LoggedInBlock/>
-            <Recipes recipes={recipes}/> */}
+            {/* <About/>*/}
+            <LoggedInBlock/>
+            <Recipes recipes={recipes}/>
           </Router>
         </div>
         <Footer/>
