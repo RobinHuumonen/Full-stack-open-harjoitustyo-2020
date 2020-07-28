@@ -18,6 +18,7 @@ import TopBlock from './components/TopBlock'
 
 const App = () => {
   const [recipes, setRecipes] = useState([]) 
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     recipeService
@@ -27,18 +28,27 @@ const App = () => {
       })
   }, [])
 
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedRecipetUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      recipeService.setToken(user.token)
+    }
+  }, [])
+
   const renderAbout = true
 
   return (
     <div className="page-container">
       <div className="content-wrap">
           <Router>
-          {/*<LogInBlock/>*/}
+          <LogInBlock setUser={setUser}/>
            {/*<SignUpBlock/>*/}
-            <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn"/>
+            {/*<TopBlock renderAbout={renderAbout} buttonText="isLoggedIn"/>*/}
             {/* <About/>*/}
-            <LoggedInBlock/>
-            <Recipes recipes={recipes}/>
+           {/* <LoggedInBlock/>*/}
+            {/*<Recipes recipes={recipes}/>*/}
           </Router>
         </div>
         <Footer/>
@@ -47,4 +57,3 @@ const App = () => {
 }
 
 export default App
-
