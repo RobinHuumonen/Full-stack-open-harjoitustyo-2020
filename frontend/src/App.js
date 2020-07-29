@@ -42,6 +42,28 @@ const App = () => {
     return 
   }
 
+  const Home = () => {
+    return (
+      <div>
+        <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn" setUser={setUser}/>
+        <LoggedInBlock/>
+        <Recipes recipes={recipes}/>
+      </div>
+    )
+  }
+
+  const Login = () => {
+    return (
+      <LogInBlock setUser={setUser}/>
+    )
+  }
+
+  const SignUp = () => {
+    return (
+      <SignUpBlock/>
+    )
+  }
+
   if (renderAbout) {
     return (
       <div>
@@ -56,7 +78,7 @@ const App = () => {
     <div className="page-container">
       <div className="content-wrap">
           <Router>
-          {user === null && renderAbout === false ?
+          {user === null ?
             <LogInBlock setUser={setUser}/> :
             <div>
               <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn" setUser={setUser}/>
