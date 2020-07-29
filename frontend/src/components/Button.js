@@ -3,10 +3,11 @@ import './Button.css'
 
 const Button = (props) => {
   return (
-    <button
-      id={props.id}>
-        {props.text}
-      </button>
+    <button onClick={props.handleClick}
+      id={props.id}
+      className={props.className}>
+      {props.text}
+    </button>
   )
 }
 

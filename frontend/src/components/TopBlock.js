@@ -13,12 +13,18 @@ const handleSearchChange = () => {
   return null
 }
 
+const handleLogout = () => {
+  console.log("logout");
+  window.localStorage.removeItem('loggedRecipetUser')
+  props.setUser(null)
+}
+
 if (props.renderAbout) {
   return (
     <div className="top-block">
       <Heading2/>
       <Heading3/>
-      <Button id="log-out-button" text={props.buttonText} />
+      <Button id="log-out-button" text={props.buttonText} handleClick={handleLogout}/>
     </div>
   )
 }
@@ -30,7 +36,7 @@ return (
       search={search}
       handleSearch={handleSearchChange}
     />
-    <Button id="log-out-button" text="Log Out" />
+    <Button id="log-out-button" text="Log Out" handleClick={handleLogout}/>
   </div>
 )
 }

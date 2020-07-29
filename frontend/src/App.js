@@ -19,6 +19,7 @@ import TopBlock from './components/TopBlock'
 const App = () => {
   const [recipes, setRecipes] = useState([]) 
   const [user, setUser] = useState(null)
+  const [renderAbout, setRenderAbout] = useState(false)
 
   useEffect(() => {
     recipeService
@@ -37,13 +38,31 @@ const App = () => {
     }
   }, [])
 
-  const renderAbout = true
+  const returnAbout = () => {
+    return 
+  }
+
+  if (renderAbout) {
+    return (
+      <div>
+        <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn" setUser={setUser}/>
+        <About/>
+        <Footer setRenderAbout={setRenderAbout}/>
+      </div>
+    )
+  }
 
   return (
     <div className="page-container">
       <div className="content-wrap">
           <Router>
-          <LogInBlock setUser={setUser}/>
+          {user === null && renderAbout === false ?
+            <LogInBlock setUser={setUser}/> :
+            <div>
+              <TopBlock renderAbout={renderAbout} buttonText="isLoggedIn" setUser={setUser}/>
+              <Recipes recipes={recipes}/>
+            </div>
+          }
            {/*<SignUpBlock/>*/}
             {/*<TopBlock renderAbout={renderAbout} buttonText="isLoggedIn"/>*/}
             {/* <About/>*/}
@@ -51,7 +70,7 @@ const App = () => {
             {/*<Recipes recipes={recipes}/>*/}
           </Router>
         </div>
-        <Footer/>
+        <Footer setRenderAbout={setRenderAbout}/>
     </div>
   )
 }
