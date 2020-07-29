@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './UserForm.css'
+import LinkButton from './LinkButton'
 
 const UserForm = ({
   handleSubmit,
@@ -8,7 +9,8 @@ const UserForm = ({
   handlePasswordChange,
   username,
   password,
-  buttonText
+  buttonText,
+  to
 }) => {
   return (
     <div className="center">
@@ -30,7 +32,8 @@ const UserForm = ({
               onChange={handlePasswordChange}
             />
           </div>
-        <button id="login-button" className="blue-box-button" type="submit">{buttonText}</button>
+        {/* <button id="login-button" className="blue-box-button" type="submit">{buttonText}</button> */}
+        <LinkButton id="login-button" text={buttonText} className="blue-box-button" to={to} type="submit"/>
       </form>
     </div>
   )

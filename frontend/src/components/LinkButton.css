@@ -1,0 +1,47 @@
+#log-out-button {
+  background: #5DADE2;
+  width: 102px;
+  height: 35px;
+  position: absolute;
+  top: 2.5%;
+  left: 85%;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+}
+
+#upload-button {
+  position: absolute;
+  width: 218px;
+  height: 35px;
+  left: 44.3%;
+  top: 110px;
+
+  background: #5DADE2;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+}
+
+.blue-text-button {
+  border: none;
+  background-color: inherit;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5DADE2;
+
+  text-align: center;
+}

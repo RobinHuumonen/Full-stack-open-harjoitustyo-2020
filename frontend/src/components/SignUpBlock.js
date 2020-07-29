@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Heading from './Heading'
+import { Heading } from './Heading'
 import UserForm from './UserForm'
 import './SignUpBlock.css'
 
@@ -9,6 +9,7 @@ const SignUpBlock = () => {
   const [user, setUser] = useState(null)
 
   const handleAccountCreation = () => {
+    console.log("signup");
     return (
       null
     )
@@ -24,6 +25,7 @@ const SignUpBlock = () => {
         handlePasswordChange={({ target }) => setPassword(target.value)}
         handleSubmit={handleAccountCreation}
         buttonText="Sign Up"
+        to="/"
       />
     </div>
   )

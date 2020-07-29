@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import Button from './Button'
+import LinkButton from './LinkButton'
 import About from './About'
 
 
@@ -17,7 +18,7 @@ const Footer = (props) => {
         <div className="row">
           <p>
             {new Date().getFullYear()} Recipet | Full Stack Open -harjoitustyö |
-            <Button className="blue-text-button" text="About" handleClick={handleAboutClick}/>
+            <LinkButton className="blue-text-button" text="About" handleClick={handleAboutClick} to="/about"/>
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Heading from './Heading'
+import { Heading } from './Heading'
 import UserForm from './UserForm'
 import SignUpLink from './SignUpLink'
 import './LogInBlock.css'

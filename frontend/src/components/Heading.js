@@ -1,15 +1,26 @@
 import React from 'react'
 import './Heading.css'
+import { withRouter } from 'react-router'
 
-const Heading = () => {
+export const Heading = () => {
   return (
       <h1 className="h1-heading">Recipet</h1>
   )
 }
 
-export const Heading2 = () => {
+const Heading2 = (props) => {
+  const {
+    history,
+    to,
+    onClick,
+  } = props
   return (
-    <h2 className="h2-heading">Recipet</h2>
+    <h2 className="h2-heading"
+    onClick={(event) => {
+        onClick && onClick(event)
+        history.push(to)
+      }}
+    >Recipet</h2>
   )
 }
 
@@ -19,4 +30,4 @@ export const Heading3 = () => {
   )
 }
 
-export default Heading
+export default withRouter(Heading2)
