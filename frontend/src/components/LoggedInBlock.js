@@ -8,7 +8,7 @@ const LoggedInBlock = (props) => {
 
 return (
   <div id="logged-in-block">
-    <LoggedInUser user={props.user} users={props.users}/>
+    <LoggedInUser user={props.user} usersRecipeCount={props.usersRecipeCount}/>
     <LinkButton id="upload-button" text="Upload Recipe" to="/upload"/>
   </div>
 )

@@ -16,32 +16,16 @@ import Recipes from './components/Recipes'
 import LoggedInBlock from './components/LoggedInBlock'
 import About from './components/About'
 import Footer from './components/Footer'
-import TopBlock from './components/TopBlock'
+import HomeTopBlock from './components/HomeTopBlock'
 import Upload from './components/Upload'
+import AboutTopBlock from './components/AboutTopBlock'
 
 const App = () => {
   const [recipes, setRecipes] = useState([]) 
   const [user, setUser] = useState(null)
-  const [renderAbout, setRenderAbout] = useState(false)
   const [users, setUsers] = useState([])
-  const [usersRecipeCount, setUsersRecipeCount] = useState([]) 
+  const [usersRecipeCount, setUsersRecipeCount] = useState([])
 
-  useEffect(() => {
-    userService
-      .getAll()
-      .then(initialUsers => {
-        setUsers(initialUsers)
-      })
-  }, [])
-
-/*   useEffect((users) => {
-    const user = users.find(u => u.username === user.username)
-    async function fetchCount () {
-      const usersRecipeCount = await userService.getUsers(user.id)
-      setUsersRecipeCount(usersRecipeCount.recipes.length)
-    }
-    fetchCount()
-    }, []) */
 
   useEffect(() => {
     recipeService
@@ -52,21 +36,37 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    let isMounted = true
+    async function fetchRecipeCount(user) {
+      const users = await userService.getAll()
+      if (isMounted) {
+        setUsers(users)
+        const useri = users.find(u => u.username === user.username)
+        setUsersRecipeCount(useri.recipes.length)
+      }
+      return () => { isMounted = false }
+    }
+
     const loggedUserJSON = window.localStorage.getItem('loggedRecipetUser')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
       recipeService.setToken(user.token)
+      fetchRecipeCount(user)
     }
-  }, [])
+    
+  }, []) 
 
   const HomePage = () => {
+    const [search, setSearch] = useState('')
+    const searchedRecipes = recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
+    console.log(searchedRecipes);
     return (
       <div>
-        <TopBlock renderAbout={renderAbout} setUser={setUser} setRenderAbout={setRenderAbout}/>
-        <LoggedInBlock user={user} users={users}/>
-        <Recipes recipes={recipes}/>
-        <Footer setRenderAbout={setRenderAbout}/>
+        <HomeTopBlock setUser={setUser} search={search} setSearch={setSearch}/>
+        <LoggedInBlock user={user} users={users} usersRecipeCount={usersRecipeCount}/>
+        <Recipes recipes={searchedRecipes}/>
+        <Footer/>
       </div>
     )
   }
@@ -75,7 +75,7 @@ const App = () => {
     return (
       <div>
         <LogInBlock setUser={setUser}/>
-        <Footer setRenderAbout={setRenderAbout}/>
+        <Footer/>
       </div>
     )
   }
@@ -84,7 +84,7 @@ const App = () => {
     return (
       <div>
         <SignUpBlock/>
-        <Footer setRenderAbout={setRenderAbout}/>
+        <Footer/>
       </div>
     )
   }
@@ -93,18 +93,17 @@ const App = () => {
     return (
       <div>
         <Upload user={user} setUser={setUser}/>
-        <Footer setRenderAbout={setRenderAbout}/>
+        <Footer/>
       </div>
     )
   }
 
   const AboutPage = () => {
-    setRenderAbout(true)
     return (
       <div>
-        <TopBlock renderAbout={renderAbout} setUser={setUser} setRenderAbout={setRenderAbout} user={user}/>
+        <AboutTopBlock setUser={setUser} user={user}/>
         <About/>
-        <Footer setRenderAbout={setRenderAbout}/>
+        <Footer/>
       </div>
     )
   }

@@ -1,25 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import './Search.css'
 
-const Search = ({
-  handleSearchChange,
-  search,
-}) => {
+const Search = (props) => {
+
+  const handleSearchChange = (event) => {
+    props.setSearch(event.target.value)
+  }
+
   return (
     <div className="center">
       <input
         className="search-input"
-        value={search}
+        value={props.search}
         onChange={handleSearchChange}
       />
     </div>
   )
-}
-
-Search.propTypes = {
-  handleSearchChange: PropTypes.func.isRequired,
-  search: PropTypes.string.isRequired,
 }
 
 export default Search
