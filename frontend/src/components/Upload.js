@@ -1,22 +1,15 @@
 import React from 'react'
 import Heading2 from './Heading'
-import LinkButton from './LinkButton'
+import LogOutLinkButton from './LogOutLinkButton'
 import './Upload.css'
 
-
-
-const Upload = (props) => {
-
-  const handleLogout = () => {
-    window.localStorage.removeItem('loggedRecipetUser')
-    props.setUser(null)
-  }
+const Upload = () => {
 
   return (
     <div> 
        <div className="top-block">
         <Heading2 to="/" />
-        <LinkButton id="log-out-button" text="Log Out" handleClick={handleLogout} to="/"/>
+        <LogOutLinkButton id="log-out-button" text="Log Out" to="/"/>
       </div>
     </div>
    

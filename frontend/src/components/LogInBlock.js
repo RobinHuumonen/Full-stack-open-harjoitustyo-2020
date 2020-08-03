@@ -3,26 +3,18 @@ import { Heading } from './Heading'
 import UserForm from './UserForm'
 import SignUpLink from './SignUpLink'
 import './LogInBlock.css'
-import loginService from '../services/login' 
-import recipeService from '../services/recipeService'
+import { logInUser } from '../reducers/userReducer'
+import { useDispatch } from 'react-redux'
 
 const LogInBlock = (props) => {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
+  
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
-      const user = await loginService.login({
-        username, password,
-      })
-
-      window.localStorage.setItem(
-        'loggedRecipetUser', JSON.stringify(user)
-      ) 
-
-      recipeService.setToken(user.token)
-      props.setUser(user)
+      dispatch(logInUser({username, password}))
       setUsername('')
       setPassword('')
     } catch (exception) {

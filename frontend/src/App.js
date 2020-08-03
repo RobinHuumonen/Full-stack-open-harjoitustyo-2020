@@ -37,7 +37,6 @@ const App = () => {
 
   const recipes = useSelector(state => state.recipes)
   const user = useSelector(state => state.user)
-  const setUser = []
 
 /*   useEffect(() => {
     let isMounted = true
@@ -72,8 +71,7 @@ const App = () => {
       }
       return () => { isMounted = false }
     }
-      recipeService.setToken(user.token)
-      fetchRecipeCount(user)
+    //fetchRecipeCount(user)
     
   }, []) 
 
@@ -82,7 +80,7 @@ const App = () => {
     const searchedRecipes = recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
     return (
       <div>
-        <HomeTopBlock setUser={setUser} search={search} setSearch={setSearch}/>
+        <HomeTopBlock search={search} setSearch={setSearch}/>
         <LoggedInBlock user={user} users={users} usersRecipeCount={usersRecipeCount}/>
         <Recipes recipes={searchedRecipes}/>
         <Footer/>
@@ -93,7 +91,7 @@ const App = () => {
   const LoginPage = () => {
     return (
       <div>
-        <LogInBlock setUser={setUser}/>
+        <LogInBlock/>
         <Footer/>
       </div>
     )
@@ -111,7 +109,7 @@ const App = () => {
   const UploadPage = () => {
     return (
       <div>
-        <Upload user={user} setUser={setUser}/>
+        <Upload user={user} />
         <Footer/>
       </div>
     )
@@ -120,7 +118,7 @@ const App = () => {
   const AboutPage = () => {
     return (
       <div>
-        <AboutTopBlock setUser={setUser} user={user}/>
+        <AboutTopBlock user={user}/>
         <About/>
         <Footer/>
       </div>

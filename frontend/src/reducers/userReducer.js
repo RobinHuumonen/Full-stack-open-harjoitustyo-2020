@@ -1,5 +1,6 @@
 import userService from '../services/userService'
 import recipeService from '../services/recipeService'
+import login from '../services/login'
 
 const reducer = (state = null, action) => {
   switch (action.type) {
@@ -27,10 +28,10 @@ export const initUser = () => {
   }
 }
 
-export const login = loginData => {
+export const logInUser = loginData => {
   return async dispatch => {
     try {
-      const user = await userService.loginUser(loginData)
+      const user = await login.login(loginData)
       window.localStorage.setItem('loggedRecipetUser', JSON.stringify(user))
       recipeService.setToken(user.token)
 /*       dispatch(
@@ -53,7 +54,7 @@ export const login = loginData => {
   }
 }
 
-export const logout = () => {
+export const logOut = () => {
   return async dispatch => {
     window.localStorage.removeItem('loggedRecipetUser')
     recipeService.nullToken()

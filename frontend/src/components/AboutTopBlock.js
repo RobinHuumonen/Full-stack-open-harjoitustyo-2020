@@ -4,13 +4,15 @@ import LinkButton from './LinkButton'
 import Button from './Button'
 import Heading2 from './Heading'
 import './TopBlock.css'
+import { logOut } from '../reducers/userReducer'
+import { useDispatch } from 'react-redux'
+
 
 
 const AboutTopBlock = (props) => {
-
+  const dispatch = useDispatch()
   const handleLogout = () => {
-    window.localStorage.removeItem('loggedRecipetUser')
-    props.setUser(null)
+    dispatch(logOut())
   }
 
   return (

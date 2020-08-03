@@ -3,13 +3,15 @@ import Heading2 from './Heading'
 import Search from './Search'
 import Button from './Button'
 import './TopBlock.css'
+import { logOut } from '../reducers/userReducer'
+import { useDispatch } from 'react-redux'
 
 const TopBlock = (props) => {
 
-const handleLogout = () => {
-  window.localStorage.removeItem('loggedRecipetUser')
-  props.setUser(null)
-}
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(logOut())
+  }
 
 return (
   <div className="top-block">
