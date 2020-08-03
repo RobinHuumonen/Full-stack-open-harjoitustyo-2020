@@ -1,9 +1,9 @@
-import React, {useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 
 import {
   BrowserRouter as Router,
-  Switch, Route
+  Switch, Route, Redirect
 } from "react-router-dom"
 
 import LogInBlock from './components/LogInBlock'
@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
 import { initUser} from './reducers/userReducer'
 import { initUsers} from './reducers/usersReducer'
+import { signUpUser } from './reducers/signUpReducer'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -33,6 +34,8 @@ const App = () => {
   const recipes = useSelector(state => state.recipes)
   const user = useSelector(state => state.user)
   const users = useSelector(state => state.users)
+  const signUpUser = useSelector(state => state.signUpUser)
+  console.log(signUpUser);
 
   const HomePage = () => {
     const search = useSelector(state => state.filter)
@@ -47,7 +50,7 @@ const App = () => {
     )
   }
 
-  const LoginPage = () => {
+  const LogInPage = () => {
     return (
       <div>
         <LogInBlock/>
@@ -91,11 +94,11 @@ const App = () => {
             <Switch>
 
               <Route path="/login">
-                <LoginPage/>
+                <LogInPage/>
               </Route>
 
               <Route path="/signup">
-                <SignUpPage/>
+                {signUpUser ? <Redirect to="/"/> : <SignUpPage/>}
               </Route>
 
               <Route path="/upload">
@@ -108,7 +111,7 @@ const App = () => {
 
               <Route path="/">
                 {user === null ?
-                  <LoginPage/> :
+                  <LogInPage/> :
                   <HomePage/>
                 }
               </Route>

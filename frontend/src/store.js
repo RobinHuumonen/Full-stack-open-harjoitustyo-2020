@@ -6,13 +6,14 @@ import recipeReducer from './reducers/recipeReducer'
 import userReducer from './reducers/userReducer'
 import usersReducer from './reducers/usersReducer'
 import filterReducer from './reducers/filterReducer'
-
+import signUpReducer from './reducers/signUpReducer'
 
 const reducer = combineReducers({
   recipes: recipeReducer,
   user: userReducer,
   users: usersReducer,
-  filter: filterReducer
+  filter: filterReducer,
+  signUpUser: signUpReducer
 })
 
 const store = createStore(

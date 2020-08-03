@@ -32,8 +32,7 @@ const UserForm = ({
               onChange={handlePasswordChange}
             />
           </div>
-        {/* <button id="login-button" className="blue-box-button" type="submit">{buttonText}</button> */}
-        <LinkButton id="login-button" text={buttonText} className="blue-box-button" to={to} type="submit"/>
+        <LinkButton id="login-button" text={buttonText} className="blue-box-button"  type="submit"/>
       </form>
     </div>
   )
@@ -48,3 +47,4 @@ UserForm.propTypes = {
 }
 
 export default UserForm
+//to={to}

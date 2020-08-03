@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Heading } from './Heading'
 import UserForm from './UserForm'
 import SignUpLink from './SignUpLink'
-import './LogInBlock.css'
+import './Log-in-and-sign-up-block.css'
 import { logInUser } from '../reducers/userReducer'
+import { nullSignUpUser } from '../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
 
-const LogInBlock = (props) => {
+const LogInBlock = () => {
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -14,11 +15,12 @@ const LogInBlock = (props) => {
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
+      dispatch(nullSignUpUser())
       dispatch(logInUser({username, password}))
       setUsername('')
       setPassword('')
-    } catch (exception) {
-        console.log('exception')
+    } catch (error) {
+        console.log('error')
 /*       setErrorMessage('wrong credentials')
       setTimeout(() => {
         setErrorMessage(null)

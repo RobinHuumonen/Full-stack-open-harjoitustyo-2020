@@ -11,4 +11,9 @@ const getUsers = async (id) => {
   return req.data
 }
 
-export default { getUsers, getAll }
+const signUp = async (newUser) => {
+  const res = await axios.post(baseUrl, newUser)
+  return res.data
+}
+
+export default { getUsers, getAll, signUp }

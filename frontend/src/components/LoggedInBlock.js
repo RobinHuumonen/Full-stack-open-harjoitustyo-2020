@@ -9,7 +9,8 @@ const LoggedInBlock = (props) => {
   const getUsersRecipeCount = () => {
     if (props.users) {
       const useri = props.users.find(u => u.username === props.user.username)
-      return useri.recipes.length
+      if (useri) 
+        return useri.recipes.length
     } else {
       return null
     }

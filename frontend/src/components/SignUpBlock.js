@@ -1,18 +1,28 @@
 import React, { useState } from 'react'
 import { Heading } from './Heading'
 import UserForm from './UserForm'
-import './SignUpBlock.css'
+import './Log-in-and-sign-up-block.css'
+import { signUpUser } from '../reducers/signUpReducer'
+import { useDispatch } from 'react-redux'
 
 const SignUpBlock = () => {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [user, setUser] = useState(null)
 
-  const handleAccountCreation = () => {
-    console.log("signup");
-    return (
-      null
-    )
+  const handleSignUp = async (event) => {
+    event.preventDefault()
+    try {
+      dispatch(signUpUser({username, password}))
+      setUsername('')
+      setPassword('')
+    } catch (error) {
+        console.log('error')
+/*       setErrorMessage('NN')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000) */
+    }
   }
 
   return (
@@ -23,7 +33,7 @@ const SignUpBlock = () => {
         password={password}
         handleUsernameChange={({ target }) => setUsername(target.value)}
         handlePasswordChange={({ target }) => setPassword(target.value)}
-        handleSubmit={handleAccountCreation}
+        handleSubmit={handleSignUp}
         buttonText="Sign Up"
         to="/"
       />
