@@ -1,9 +1,9 @@
 import React from 'react'
-import Heading2 from './Heading'
+import Heading2 from '../Heading'
 import Filter from './Filter'
-import Button from './Button'
-import './TopBlock.css'
-import { logOut } from '../reducers/userReducer'
+import Button from '../Button'
+import '../TopBlock.css'
+import { logOut } from '../../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 
 const TopBlock = () => {

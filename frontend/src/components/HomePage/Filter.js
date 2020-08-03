@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { search } from '../reducers/filterReducer'
+import { search } from '../../reducers/filterReducer'
 import './Filter.css'
 
 

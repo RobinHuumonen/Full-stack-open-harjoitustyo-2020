@@ -1,5 +1,5 @@
 import React from 'react'
-import Heading2 from './Heading'
+import Heading2 from '../Heading'
 import LogOutLinkButton from './LogOutLinkButton'
 import './Upload.css'
 

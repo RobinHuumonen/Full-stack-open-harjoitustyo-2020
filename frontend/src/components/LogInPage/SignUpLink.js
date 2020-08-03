@@ -1,7 +1,7 @@
 import React from 'react' 
 import './SignUpLink.css'
-import LinkButton from './LinkButton'
-import { nullSignUpUser } from '../reducers/signUpReducer'
+import LinkButton from '../LinkButton'
+import { nullSignUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
 
 const SignUpLink = () => {

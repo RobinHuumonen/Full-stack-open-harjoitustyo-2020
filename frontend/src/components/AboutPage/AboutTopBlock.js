@@ -1,10 +1,10 @@
 import React from 'react'
-import { Heading3 } from './Heading'
-import LinkButton from './LinkButton'
-import Button from './Button'
-import Heading2 from './Heading'
-import './TopBlock.css'
-import { logOut } from '../reducers/userReducer'
+import { Heading3 } from '../Heading'
+import LinkButton from '../LinkButton'
+import Button from '../Button'
+import Heading2 from '../Heading'
+import '../TopBlock.css'
+import { logOut } from '../../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 
 

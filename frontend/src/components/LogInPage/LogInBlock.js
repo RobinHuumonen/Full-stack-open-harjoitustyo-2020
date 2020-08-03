@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Heading } from './Heading'
-import UserForm from './UserForm'
+import { Heading } from '../Heading'
+import UserForm from '../UserForm'
 import SignUpLink from './SignUpLink'
-import './Log-in-and-sign-up-block.css'
-import { logInUser } from '../reducers/userReducer'
-import { nullSignUpUser } from '../reducers/signUpReducer'
+import '../Log-in-and-sign-up-block.css'
+import { logInUser } from '../../reducers/userReducer'
+import { nullSignUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
 
 const LogInBlock = () => {

@@ -6,15 +6,15 @@ import {
   Switch, Route, Redirect
 } from "react-router-dom"
 
-import LogInBlock from './components/LogInBlock'
-import SignUpBlock from './components/SignUpBlock'
-import Recipes from './components/Recipes'
-import LoggedInBlock from './components/LoggedInBlock'
-import About from './components/About'
+import LogInBlock from './components//LogInPage/LogInBlock'
+import SignUpBlock from './components//SignUpPage/SignUpBlock'
+import Recipes from './components//HomePage/Recipes'
+import LoggedInBlock from './components//HomePage/LoggedInBlock'
+import About from './components//AboutPage/About'
 import Footer from './components/Footer'
-import HomeTopBlock from './components/HomeTopBlock'
-import Upload from './components/Upload'
-import AboutTopBlock from './components/AboutTopBlock'
+import HomeTopBlock from './components//HomePage/HomeTopBlock'
+import Upload from './components//UploadPage/Upload'
+import AboutTopBlock from './components//AboutPage/AboutTopBlock'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'

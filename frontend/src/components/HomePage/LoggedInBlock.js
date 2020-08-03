@@ -1,7 +1,7 @@
 import React from 'react'
 import './LoggedInBlock.css'
 import LoggedInUser from './LoggedInUser'
-import LinkButton from './LinkButton'
+import LinkButton from '../LinkButton'
 
 
 const LoggedInBlock = (props) => {

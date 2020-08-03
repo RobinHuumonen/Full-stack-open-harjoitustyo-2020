@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { H1LinkHead } from './Heading'
-import UserForm from './UserForm'
-import './Log-in-and-sign-up-block.css'
-import { signUpUser } from '../reducers/signUpReducer'
+import { H1LinkHead } from '../Heading'
+import UserForm from '../UserForm'
+import '../Log-in-and-sign-up-block.css'
+import { signUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
 
 const SignUpBlock = () => {
