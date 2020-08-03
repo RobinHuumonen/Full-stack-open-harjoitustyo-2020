@@ -3,8 +3,6 @@ import './App.css'
 import recipeService from './services/recipeService'
 import userService from './services/userService'
 
-
-
 import {
   BrowserRouter as Router,
   Switch, Route
@@ -20,20 +18,22 @@ import HomeTopBlock from './components/HomeTopBlock'
 import Upload from './components/Upload'
 import AboutTopBlock from './components/AboutTopBlock'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { initRecipes} from './reducers/recipeReducer'
+
+
+
 const App = () => {
-  const [recipes, setRecipes] = useState([]) 
+  const dispatch = useDispatch()
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState([])
   const [usersRecipeCount, setUsersRecipeCount] = useState([])
 
-
   useEffect(() => {
-    recipeService
-      .getAll()
-      .then(initialRecipes => {
-        setRecipes(initialRecipes)
-      })
-  }, [])
+    dispatch(initRecipes())
+  }, [dispatch])
+
+  const recipes = useSelector(state => state.recipes)
 
   useEffect(() => {
     let isMounted = true
@@ -60,7 +60,6 @@ const App = () => {
   const HomePage = () => {
     const [search, setSearch] = useState('')
     const searchedRecipes = recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
-    console.log(searchedRecipes);
     return (
       <div>
         <HomeTopBlock setUser={setUser} search={search} setSearch={setSearch}/>
