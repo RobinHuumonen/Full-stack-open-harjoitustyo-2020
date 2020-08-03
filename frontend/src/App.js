@@ -35,11 +35,11 @@ const App = () => {
   const user = useSelector(state => state.user)
   const users = useSelector(state => state.users)
   const signUpUser = useSelector(state => state.signUpUser)
-  console.log(signUpUser);
 
   const HomePage = () => {
+    const usersRecipes = recipes.filter(r => r.user.username === user.username)
     const search = useSelector(state => state.filter)
-    const searchedRecipes = recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
+    const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
     return (
       <div>
         <HomeTopBlock />
