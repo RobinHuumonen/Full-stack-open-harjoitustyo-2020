@@ -35,11 +35,11 @@ const App = () => {
   const users = useSelector(state => state.users)
 
   const HomePage = () => {
-    const [search, setSearch] = useState('')
+    const search = useSelector(state => state.filter)
     const searchedRecipes = recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
     return (
       <div>
-        <HomeTopBlock search={search} setSearch={setSearch}/>
+        <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
         <Recipes recipes={searchedRecipes}/>
         <Footer/>
