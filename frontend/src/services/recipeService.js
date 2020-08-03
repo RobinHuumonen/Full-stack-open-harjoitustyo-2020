@@ -7,6 +7,10 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
+const nullToken = () => {
+  token = null
+}
+
 const getAll = () => {
   const req = axios.get(baseUrl)
   return req.then(res => res.data)
@@ -26,4 +30,4 @@ const update = (id, newObject) => {
   return req.then(res => res.data)
 }
 
-export default { getAll, create, update, setToken }
+export default { getAll, create, update, setToken, nullToken }

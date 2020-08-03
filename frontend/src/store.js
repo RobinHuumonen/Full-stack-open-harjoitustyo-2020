@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import recipeReducer from './reducers/recipeReducer'
+import userReducer from './reducers/userReducer'
 
 const reducer = combineReducers({
   recipes: recipeReducer,
+  user: userReducer,
 })
 
 const store = createStore(

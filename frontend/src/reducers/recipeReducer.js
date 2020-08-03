@@ -32,7 +32,6 @@ export const initRecipes = () => {
       console.log(error.message)
 /*       dispatch(
         setNotification({
-          class: 'alert alert-danger',
           message: error.message
         })
       ) */
