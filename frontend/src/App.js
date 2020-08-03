@@ -20,7 +20,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
 import { initUser} from './reducers/userReducer'
 import { initUsers} from './reducers/usersReducer'
-import { signUpUser } from './reducers/signUpReducer'
 
 const App = () => {
   const dispatch = useDispatch()

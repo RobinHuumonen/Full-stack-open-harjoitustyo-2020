@@ -13,6 +13,9 @@ const SignUpBlock = () => {
   const handleSignUp = async (event) => {
     event.preventDefault()
     try {
+      if (password.length < 3) {
+        throw new Error("Password's minimum length is 3")
+      }
       dispatch(signUpUser({username, password}))
       setUsername('')
       setPassword('')
