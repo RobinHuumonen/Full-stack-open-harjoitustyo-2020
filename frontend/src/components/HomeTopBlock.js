@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Heading2 from './Heading'
 import Search from './Search'
 import Button from './Button'

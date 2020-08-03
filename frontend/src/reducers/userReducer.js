@@ -1,4 +1,3 @@
-import userService from '../services/userService'
 import recipeService from '../services/recipeService'
 import login from '../services/login'
 

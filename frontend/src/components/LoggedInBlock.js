@@ -6,12 +6,21 @@ import LinkButton from './LinkButton'
 
 const LoggedInBlock = (props) => {
 
-return (
-  <div id="logged-in-block">
-    <LoggedInUser user={props.user} usersRecipeCount={props.usersRecipeCount}/>
-    <LinkButton id="upload-button" text="Upload Recipe" to="/upload"/>
-  </div>
-)
+  const getUsersRecipeCount = () => {
+    if (props.users) {
+      const useri = props.users.find(u => u.username === props.user.username)
+      return useri.recipes.length
+    } else {
+      return null
+    }
+  }
+
+  return (
+    <div id="logged-in-block">
+      <LoggedInUser user={props.user} usersRecipeCount={getUsersRecipeCount()}/>
+      <LinkButton id="upload-button" text="Upload Recipe" to="/upload"/>
+    </div>
+  )
 
 }
 

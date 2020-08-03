@@ -1,7 +1,5 @@
 import React, {useState, useEffect } from 'react'
 import './App.css'
-import recipeService from './services/recipeService'
-import userService from './services/userService'
 
 import {
   BrowserRouter as Router,
@@ -21,59 +19,20 @@ import AboutTopBlock from './components/AboutTopBlock'
 import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
 import { initUser} from './reducers/userReducer'
-
-
+import { initUsers} from './reducers/usersReducer'
 
 const App = () => {
   const dispatch = useDispatch()
-  /* const [user, setUser] = useState(null) */
-  const [users, setUsers] = useState([])
-  const [usersRecipeCount, setUsersRecipeCount] = useState([])
 
   useEffect(() => {
     dispatch(initRecipes())
     dispatch(initUser())
+    dispatch(initUsers())
   }, [dispatch])
 
   const recipes = useSelector(state => state.recipes)
   const user = useSelector(state => state.user)
-
-/*   useEffect(() => {
-    let isMounted = true
-    async function fetchRecipeCount(user) {
-      const users = await userService.getAll()
-      if (isMounted) {
-        setUsers(users)
-        const useri = users.find(u => u.username === user.username)
-        setUsersRecipeCount(useri.recipes.length)
-      }
-      return () => { isMounted = false }
-    }
-
-    const loggedUserJSON = window.localStorage.getItem('loggedRecipetUser')
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
-      setUser(user)
-      recipeService.setToken(user.token)
-      fetchRecipeCount(user)
-    }
-    
-  }, [])  */
-
-  useEffect(() => {
-    let isMounted = true
-    async function fetchRecipeCount(user) {
-      const users = await userService.getAll()
-      if (isMounted) {
-        setUsers(users)
-        const useri = users.find(u => u.username === user.username)
-        setUsersRecipeCount(useri.recipes.length)
-      }
-      return () => { isMounted = false }
-    }
-    //fetchRecipeCount(user)
-    
-  }, []) 
+  const users = useSelector(state => state.users)
 
   const HomePage = () => {
     const [search, setSearch] = useState('')
@@ -81,7 +40,7 @@ const App = () => {
     return (
       <div>
         <HomeTopBlock search={search} setSearch={setSearch}/>
-        <LoggedInBlock user={user} users={users} usersRecipeCount={usersRecipeCount}/>
+        <LoggedInBlock user={user} users={users}/>
         <Recipes recipes={searchedRecipes}/>
         <Footer/>
       </div>
