@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Heading } from './Heading'
+import { H1LinkHead } from './Heading'
 import UserForm from './UserForm'
 import './Log-in-and-sign-up-block.css'
 import { signUpUser } from '../reducers/signUpReducer'
@@ -30,7 +30,7 @@ const SignUpBlock = () => {
 
   return (
     <div className="log-in-and-sign-up-block">
-      <Heading/>
+      <H1LinkHead  to="/"/>
       <UserForm
         username={username}
         password={password}
