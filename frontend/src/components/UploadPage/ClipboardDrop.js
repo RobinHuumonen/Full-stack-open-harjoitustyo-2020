@@ -6,12 +6,17 @@ import { useDispatch } from 'react-redux'
 function ClipboardDrop() {
   const dispatch = useDispatch()
   const [file, setFile] = useState(null)
+  const [fileName, setFileName] = useState('')
 
-  const name = Date.now()
   if (file) {
-    dispatch(createRecipe(file, name))
+    if (!fileName) {
+      dispatch(createRecipe(file, new Date()))
+    }
+    dispatch(createRecipe(file, fileName))
+    setFile(null)
+    setFileName('')
   }
-  
+
   const handlePaste = (event) => {
     const items = (event.clipboardData || event.originalEvent.clipboardData).items;
     let blob = null;
@@ -22,11 +27,9 @@ function ClipboardDrop() {
       }
     }
 
-    // load image if there is a pasted image
     if (blob !== null) {
       const reader = new FileReader();
       reader.onload = (evt) => {
-        /* console.log(evt.target.result); // data url! */
         setFile(evt.target.result)
       }
       reader.readAsDataURL(blob)
@@ -36,7 +39,12 @@ function ClipboardDrop() {
   return (
     <div className="container">
       <div id="clipboard-drop">
-        <textarea id="clipboard-textarea" placeholder="Type a message" onPaste={handlePaste}></textarea>
+        <p className="guidance-text">1. Name recipe before upload</p>
+          <input className="grey-input"
+            value={fileName}
+            onChange={({ target }) => setFileName(target.value)}
+          />
+        <textarea id="clipboard-textarea" placeholder="2. Click here to select and ctrl + v to upload image from clipboard" onPaste={handlePaste}></textarea>
       </div>
     </div>
   )

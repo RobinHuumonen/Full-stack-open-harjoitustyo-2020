@@ -48,9 +48,8 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height */
-
   text-align: center;
+  color: rgba(0, 0, 0, 0.33);
 }
 
 #clipboard-drop {
@@ -70,7 +69,7 @@
 #clipboard-textarea {
   position: absolute;
   width: 363px;
-  height: 22px;
+  height: 60px;
   left: 217px;
   top: 150px;
 
@@ -84,4 +83,8 @@
   text-align: center;
 
   color: rgba(0, 0, 0, 0.33);
+}
+
+.grey-input {
+  background: #F7F9F9;
 }

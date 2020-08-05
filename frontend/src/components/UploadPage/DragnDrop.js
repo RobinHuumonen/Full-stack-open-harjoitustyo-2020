@@ -31,7 +31,7 @@ function DragnDrop() {
     <div className="container">
       <div {...getRootProps({className: 'dropzone'})}>
         <input {...getInputProps()} />
-        <p id="drag-text">Drag 'n' drop some files here, or click to select files</p>
+        <p id="drag-text">Drag 'n' drop some images here, or click to select images</p>
       </div>
       </div>
   );
