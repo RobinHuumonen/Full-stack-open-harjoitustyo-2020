@@ -17,7 +17,7 @@ const reducer = (state = [], action) => {
   }
 }
 
-export const createRecipe = (imageData) => {
+export const createRecipe = (imageData, name = null) => {
   return async dispatch => {
     const uploadImage = async () => {
       const data = new FormData()
@@ -34,6 +34,12 @@ export const createRecipe = (imageData) => {
       return file.secure_url
     }
     try {
+      let thumbnailCaption
+      if (name) {
+        thumbnailCaption = name
+      } else {
+        thumbnailCaption = imageData.name
+      }
       const src = await uploadImage()
       if (src) {
         const dataToServer = {
@@ -41,8 +47,8 @@ export const createRecipe = (imageData) => {
           thumbnail: src,
           thumbnailWidth: 258,
           thumbnailHeight: 258,
-          caption: imageData.name,
-          thumbnailCaption: imageData.name 
+          caption: thumbnailCaption,
+          thumbnailCaption
         }
         const data = await recipeService.create(dataToServer)
         dispatch({

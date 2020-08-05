@@ -3,6 +3,7 @@ import Heading2 from '../Heading'
 import LogOutLinkButton from './LogOutLinkButton'
 import './Upload.css'
 import DragnDrop from './DragnDrop'
+import ClipboardDrop from './ClipboardDrop'
 
 const Upload = () => {
 
@@ -12,6 +13,7 @@ const Upload = () => {
         <Heading2 to="/" />
         <LogOutLinkButton id="log-out-button" text="Log Out" to="/"/>
       </div>
+      <ClipboardDrop/>
       <DragnDrop/>
     </div>
    
