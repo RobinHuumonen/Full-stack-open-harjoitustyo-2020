@@ -7,13 +7,15 @@ import userReducer from './reducers/userReducer'
 import usersReducer from './reducers/usersReducer'
 import filterReducer from './reducers/filterReducer'
 import signUpReducer from './reducers/signUpReducer'
+import notificationReducer from './reducers/notificationReducer'
 
 const reducer = combineReducers({
   recipes: recipeReducer,
   user: userReducer,
   users: usersReducer,
   filter: filterReducer,
-  signUpUser: signUpReducer
+  signUpUser: signUpReducer,
+  notification: notificationReducer
 })
 
 const store = createStore(

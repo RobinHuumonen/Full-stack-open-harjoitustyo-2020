@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import HomeTopBlock from './components//HomePage/HomeTopBlock'
 import Upload from './components//UploadPage/Upload'
 import AboutTopBlock from './components//AboutPage/AboutTopBlock'
+import Notification from './components/Notification'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
@@ -34,6 +35,7 @@ const App = () => {
   const user = useSelector(state => state.user)
   const users = useSelector(state => state.users)
   const signUpUser = useSelector(state => state.signUpUser)
+  const notification = useSelector(state => state.notification) 
 
   const HomePage = () => {
     const usersRecipes = recipes.filter(r => r.user.username === user.username)
@@ -41,6 +43,7 @@ const App = () => {
     const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
     return (
       <div>
+        <Notification notification={notification}/>
         <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
         <Recipes recipes={searchedRecipes}/>
@@ -52,6 +55,7 @@ const App = () => {
   const LogInPage = () => {
     return (
       <div>
+        <Notification notification={notification}/>
         <LogInBlock/>
         <Footer/>
       </div>
@@ -61,6 +65,7 @@ const App = () => {
   const SignUpPage = () => {
     return (
       <div>
+        <Notification notification={notification}/>
         <SignUpBlock/>
         <Footer/>
       </div>
@@ -70,6 +75,7 @@ const App = () => {
   const UploadPage = () => {
     return (
       <div>
+        <Notification notification={notification}/>
         <Upload user={user} />
         <Footer/>
       </div>

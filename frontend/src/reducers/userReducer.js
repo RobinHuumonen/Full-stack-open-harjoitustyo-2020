@@ -1,5 +1,6 @@
 import recipeService from '../services/recipeService'
-import login from '../services/login'
+import login from '../services/login' 
+import { setNotification } from './notificationReducer'
 
 const reducer = (state = null, action) => {
   switch (action.type) {
@@ -33,22 +34,18 @@ export const logInUser = loginData => {
       const user = await login.login(loginData)
       window.localStorage.setItem('loggedRecipetUser', JSON.stringify(user))
       recipeService.setToken(user.token)
-/*       dispatch(
-        setNotification({
-          message: `user ${user.username} signed in successfully`
-        })
-      ) */
+      dispatch(
+        setNotification(
+          `User ${user.username} signed in successfully`, 5)
+      )
       dispatch({
         type: 'LOGIN_USER',
         user
       })
     } catch (error) {
-      console.log(error)
-/*       dispatch(
-        setNotification({
-          message: 'invalid username or password'
-        })
-      ) */
+      dispatch(
+        setNotification('Invalid username or password', 5)
+      )
     }
   }
 }
@@ -58,11 +55,6 @@ export const logOut = () => {
     window.localStorage.removeItem('loggedRecipetUser')
     recipeService.nullToken()
     dispatch({ type: 'LOGOUT_USER' })
-/*     dispatch(
-      setNotification({
-        message: 'user logged out successfully'
-      })
-    ) */
   }
 }
 export default reducer

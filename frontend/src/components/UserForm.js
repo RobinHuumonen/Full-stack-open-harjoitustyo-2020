@@ -10,7 +10,6 @@ const UserForm = ({
   username,
   password,
   buttonText,
-  to
 }) => {
   return (
     <div className="center">
@@ -47,4 +46,3 @@ UserForm.propTypes = {
 }
 
 export default UserForm
-//to={to}

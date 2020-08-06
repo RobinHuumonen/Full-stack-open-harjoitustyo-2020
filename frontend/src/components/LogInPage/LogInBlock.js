@@ -20,11 +20,6 @@ const LogInBlock = () => {
       setUsername('')
       setPassword('')
     } catch (error) {
-        console.log('error')
-/*       setErrorMessage('wrong credentials')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000) */
     }
   }
 

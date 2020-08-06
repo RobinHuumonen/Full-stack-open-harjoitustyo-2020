@@ -1,4 +1,5 @@
 import recipeService from '../services/recipeService'
+import { setNotification } from './notificationReducer'
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -64,12 +65,7 @@ export const createRecipe = (imageData, name = null) => {
         })
       }
     } catch (error) {
-        console.log(error.message)
-        /*       dispatch(
-                setNotification({
-                  message: error.message
-                })
-              ) */
+      dispatch(setNotification(error.message, 5))
     }
   }
 }
@@ -84,12 +80,7 @@ export const initRecipes = () => {
         data
       })
     } catch (error) {
-      console.log(error.message)
-/*       dispatch(
-        setNotification({
-          message: error.message
-        })
-      ) */
+      dispatch(setNotification(error.message, 5))
     }
   }
 }

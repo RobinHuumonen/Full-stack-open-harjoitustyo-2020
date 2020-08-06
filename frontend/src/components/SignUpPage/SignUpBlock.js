@@ -4,6 +4,7 @@ import UserForm from '../UserForm'
 import '../Log-in-and-sign-up-block.css'
 import { signUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
+import { setNotification } from '../../reducers/notificationReducer'
 
 const SignUpBlock = () => {
   const dispatch = useDispatch()
@@ -16,15 +17,14 @@ const SignUpBlock = () => {
       if (password.length < 3) {
         throw new Error("Password's minimum length is 3")
       }
+      if (username.length < 3) {
+        throw new Error("Username's minimum length is 3")
+      }
       dispatch(signUpUser({username, password}))
       setUsername('')
       setPassword('')
     } catch (error) {
-        console.log('error')
-/*       setErrorMessage('NN')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000) */
+        dispatch(setNotification(error.message, 5))
     }
   }
 
