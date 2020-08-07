@@ -14,8 +14,8 @@ const Recipes = ({ recipes }) => {
     dispatch(updateRecipe(newRecipe, recipe.thumbnailCaption))
   }
 
-  const handleDelete = (id) => {
-    dispatch(removeRecipe(id))
+  const handleDelete = (id, name) => {
+    dispatch(removeRecipe(id, name))
   }
 
   return (
@@ -24,15 +24,13 @@ const Recipes = ({ recipes }) => {
     return (
       <div key={recipe.id}>
         <Gallery images={ [recipe] } showImageCount={false}/>
-        <button className="delete-button" onClick={() => handleDelete(recipe.id)}>Delete</button>
-        <form onSubmit={() => handleRenaming(recipe)}>
+        <button className="delete-button" onClick={() => handleDelete(recipe.id, recipe.thumbnailCaption)}>Delete</button>
           <input
             className="white-input"
             value={name}
             onChange={({ target }) => setName(target.value)}
           />
-          <button type="submit" className="rename-button">Rename</button>
-        </form>
+          <button onClick={() => handleRenaming(recipe)} className="rename-button">Rename</button>
       </div>
     )
     }
@@ -45,3 +43,4 @@ const Recipes = ({ recipes }) => {
 
 export default Recipes
 
+// onSubmit={() => handleRenaming(recipe)}

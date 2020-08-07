@@ -19,7 +19,7 @@ const reducer = (state = [], action) => {
   }
 }
 
-export const removeRecipe = (id) => {
+export const removeRecipe = (id, name) => {
   return async dispatch => {
     try {
       await recipeService.remove(id)
@@ -28,6 +28,8 @@ export const removeRecipe = (id) => {
         type: 'REMOVE_RECIPE',
         data: id
       })
+
+      dispatch(setNotification(`${name} removed`, 5))
 
     } catch (error) {
       dispatch(setNotification(error.message, 5))
