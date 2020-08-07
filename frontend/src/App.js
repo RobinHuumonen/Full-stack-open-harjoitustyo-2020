@@ -47,7 +47,7 @@ const App = () => {
         <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
         <Recipes recipes={searchedRecipes}/>
-        <Footer/>
+       {/*  <Footer/> */}
       </div>
     )
   }

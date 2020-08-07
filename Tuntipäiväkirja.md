@@ -9,3 +9,7 @@ Pvm | Tunnit / h | Toimet
 28.7. | 1.51 | Routejen korjaus, kirjauttuminen frontendissä ja tokenin tallettaminen selaimen local storageen.
 29.7. | 4.56 | Näkymien hallinta React-routerilla ja nappien logiikka.
 1.8. | 3.15 | Kirjautuneen käyttäjän nimen ja reseptimäärän renderöinti, bad setState -varoituksen korjaus ja reseptien haku.
+3.8. | 4.84 | React-redux tilanhallintaan, käyttäjän luominen frontendissä ja hakemiston uudelleenjärjestäminen.
+4.8. | 3.53 | Kuvien lähetys Cloudinary apiin ja palvelimelle drag 'n' drop -menetelmällä.
+5.8. | 1.64 | Kuvien lähetys Cloudinary apiin ja palvelimelle leikepöydältä.
+6.8. | 2.55 | Notifikaatiokomponentti ja virheen korjausyritys.

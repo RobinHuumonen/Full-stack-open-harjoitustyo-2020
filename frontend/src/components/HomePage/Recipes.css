@@ -1,0 +1,39 @@
+.delete-button {
+  position: absolute;
+  top: 420px;
+  
+  background: #5DADE2;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+
+}
+
+.rename-button {
+  position: absolute;
+  top: 620px;
+  
+  background: #5DADE2;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FDFEFE;
+  text-align: center;
+
+}
+
+.white-input {
+  position: absolute;
+  top: 520px;
+  background: #FDFEFE;
+}
+
+

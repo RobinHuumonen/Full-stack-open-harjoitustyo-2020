@@ -8,13 +8,31 @@ const reducer = (state = [], action) => {
     case 'CREATE_RECIPE':
       return [...state, action.data]
 /*     case 'REMOVE_RECIPE':
-      return [...state].filter(r => r.id !== action.object)
+      return [...state].filter(r => r.id !== action.object) */
     case 'UPDATE_RECIPE':
       return [...state].map(r =>
-        r.id === action.object.id ? action.object : r
-      ) */
+        r.id === action.data.id ? action.data : r
+      )
     default:
       return state
+  }
+}
+
+export const updateRecipe = (recipe) => {
+  return async dispatch => {
+    try {
+      const updatedRecipe = await recipeService.update(recipe)
+
+      dispatch({
+        type: "UPDATE_RECIPE",
+        data: updateRecipe
+      })
+
+      dispatch(setNotification(`${recipe.thumbnailCaption}'s name changed to ${updatedRecipe.thumbnailCaption}`, 5))
+
+    } catch (error) {
+      dispatch(setNotification(error.message, 5))
+    }
   }
 }
 
