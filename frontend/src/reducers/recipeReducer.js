@@ -7,9 +7,10 @@ const reducer = (state = [], action) => {
       return [...action.data]
     case 'CREATE_RECIPE':
       return [...state, action.data]
-/*     case 'REMOVE_RECIPE':
-      return [...state].filter(r => r.id !== action.object) */
+    case 'REMOVE_RECIPE':
+      return [...state].filter(r => r.id !== action.data)
     case 'UPDATE_RECIPE':
+      console.log(action.data);
       return [...state].map(r =>
         r.id === action.data.id ? action.data : r
       )
@@ -18,17 +19,33 @@ const reducer = (state = [], action) => {
   }
 }
 
-export const updateRecipe = (recipe) => {
+export const removeRecipe = (id) => {
   return async dispatch => {
     try {
-      const updatedRecipe = await recipeService.update(recipe)
+      await recipeService.remove(id)
 
       dispatch({
-        type: "UPDATE_RECIPE",
-        data: updateRecipe
+        type: 'REMOVE_RECIPE',
+        data: id
       })
 
-      dispatch(setNotification(`${recipe.thumbnailCaption}'s name changed to ${updatedRecipe.thumbnailCaption}`, 5))
+    } catch (error) {
+      dispatch(setNotification(error.message, 5))
+    }
+  }
+}
+
+export const updateRecipe = (recipe, oldName) => {
+  return async dispatch => {
+    try {
+
+      const data = await recipeService.update(recipe)
+      dispatch({
+        type: "UPDATE_RECIPE",
+        data
+      })
+
+      dispatch(setNotification(`${oldName}'s name changed`, 5))
 
     } catch (error) {
       dispatch(setNotification(error.message, 5))
