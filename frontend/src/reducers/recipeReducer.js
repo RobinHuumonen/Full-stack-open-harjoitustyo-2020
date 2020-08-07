@@ -10,7 +10,6 @@ const reducer = (state = [], action) => {
     case 'REMOVE_RECIPE':
       return [...state].filter(r => r.id !== action.data)
     case 'UPDATE_RECIPE':
-      console.log(action.data);
       return [...state].map(r =>
         r.id === action.data.id ? action.data : r
       )
