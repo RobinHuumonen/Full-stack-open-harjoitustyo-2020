@@ -14,3 +14,4 @@ Pvm | Tunnit / h | Toimet
 5.8. | 1.64 | Kuvien lähetys Cloudinary apiin ja palvelimelle leikepöydältä.
 6.8. | 2.55 | Notifikaatiokomponentti ja virheen korjausyritys.
 7.8. | 4.19 | Kuvan poisto ja uudelleen nimeäminen ja ja virheiden korjauksia.
+8.8. | 1.07 | Placeholdertekstit syötekentille ja Flexbox CSS:n opettelu.
