@@ -15,6 +15,7 @@ const Filter = () => {
       <input
         className="search-input"
         onChange={handleChange}
+        placeholder="Search"
       />
     </div>
   )

@@ -16,6 +16,7 @@ const UserForm = ({
       <form onSubmit={handleSubmit}>
           <div >
             <input
+            placeholder="Username (min. length 3)"
             className="grey-input"
             id="username"
               value={username}
@@ -24,6 +25,7 @@ const UserForm = ({
           </div>
           <div>
             <input
+              placeholder="Password (min. length 3)"
               className="grey-input"
               id="password"
               type="password"

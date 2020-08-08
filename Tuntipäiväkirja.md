@@ -13,3 +13,4 @@ Pvm | Tunnit / h | Toimet
 4.8. | 3.53 | Kuvien lähetys Cloudinary apiin ja palvelimelle drag 'n' drop -menetelmällä.
 5.8. | 1.64 | Kuvien lähetys Cloudinary apiin ja palvelimelle leikepöydältä.
 6.8. | 2.55 | Notifikaatiokomponentti ja virheen korjausyritys.
+7.8. | 4.19 | Kuvan poisto ja uudelleen nimeäminen ja ja virheiden korjauksia.

@@ -1,5 +1,6 @@
 import recipeService from '../services/recipeService'
 import { setNotification } from './notificationReducer'
+import { initUsers } from './usersReducer'
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -99,6 +100,8 @@ export const createRecipe = (imageData, name = null) => {
           type: 'CREATE_RECIPE',
           data
         })
+        dispatch(initUsers())
+        dispatch(setNotification(`Recipe '${data.thumbnailCaption}' added!`, 5))
       }
     } catch (error) {
       dispatch(setNotification(error.message, 5))

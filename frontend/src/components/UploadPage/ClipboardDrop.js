@@ -43,6 +43,7 @@ function ClipboardDrop() {
           <input className="grey-input"
             value={fileName}
             onChange={({ target }) => setFileName(target.value)}
+            placeholder="Filename"
           />
         <textarea id="clipboard-textarea" placeholder="2. Click here to select and ctrl + v to upload image from clipboard" onPaste={handlePaste}></textarea>
       </div>
