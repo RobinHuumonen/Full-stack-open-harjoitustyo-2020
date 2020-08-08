@@ -10,13 +10,15 @@ const UserForm = ({
   username,
   password,
   buttonText,
+  namePlaceholder,
+  passwordPlaceHolder
 }) => {
   return (
     <div className="center">
       <form onSubmit={handleSubmit}>
           <div >
             <input
-            placeholder="Username (min. length 3)"
+            placeholder={namePlaceholder}
             className="grey-input"
             id="username"
               value={username}
@@ -25,7 +27,7 @@ const UserForm = ({
           </div>
           <div>
             <input
-              placeholder="Password (min. length 3)"
+              placeholder={passwordPlaceHolder}
               className="grey-input"
               id="password"
               type="password"

@@ -34,6 +34,8 @@ const LogInBlock = () => {
         handlePasswordChange={({ target }) => setPassword(target.value)}
         handleSubmit={handleLogin}
         buttonText="Log In"
+        namePlaceholder = "Username"
+        passwordPlaceHolder = "Password"
       />
       <SignUpLink/>
     </div>

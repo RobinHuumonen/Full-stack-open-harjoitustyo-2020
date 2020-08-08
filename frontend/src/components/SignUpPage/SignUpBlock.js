@@ -39,6 +39,8 @@ const SignUpBlock = () => {
         handleSubmit={handleSignUp}
         buttonText="Sign Up"
         to="/"
+        namePlaceholder = "Username (min. length 3)"
+        passwordPlaceHolder = "Password (min. length 3)"
       />
     </div>
   )
