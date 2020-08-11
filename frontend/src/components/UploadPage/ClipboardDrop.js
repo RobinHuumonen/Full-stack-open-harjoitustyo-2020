@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import './Upload.css'
+import '../../index.css'
 import { createRecipe } from '../../reducers/recipeReducer'
 import { useDispatch } from 'react-redux'
 
@@ -37,17 +37,16 @@ function ClipboardDrop() {
   }
 
   return (
-    <div className="container">
-      <div id="clipboard-drop">
-        <p className="guidance-text">1. Name recipe before upload</p>
-          <input className="grey-input"
-            value={fileName}
-            onChange={({ target }) => setFileName(target.value)}
-            placeholder="Filename"
-          />
-        <textarea id="clipboard-textarea" placeholder="2. Click here to select and ctrl + v to upload image from clipboard" onPaste={handlePaste}></textarea>
-      </div>
+    <div className="container-4">
+      <p id="guidance-text">1. Name recipe before upload</p>
+        <input className="grey-input-2"
+          value={fileName}
+          onChange={({ target }) => setFileName(target.value)}
+          placeholder="Filename"
+        />
+      <textarea id="clipboard-textarea" placeholder="2. Click here to select and ctrl + v to upload image from clipboard" onPaste={handlePaste}></textarea>
     </div>
+      
   )
 }
 

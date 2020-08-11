@@ -2,7 +2,7 @@ import React from 'react'
 import Heading2 from '../Heading'
 import Filter from './Filter'
 import Button from '../Button'
-import '../TopBlock.css'
+import '../../index.css'
 import { logOut } from '../../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 
@@ -14,10 +14,10 @@ const TopBlock = () => {
   }
 
 return (
-  <div className="top-block">
+  <div className="container-2">
     <Heading2 to="/" />
     <Filter/>
-    <Button id="log-out-button" text="Log Out" handleClick={handleLogout}/>
+    <Button id="button-log-out" text="Log Out" handleClick={handleLogout}/>
   </div>
 )
 }

@@ -1,21 +1,23 @@
 import React from 'react'
 import Heading2 from '../Heading'
 import LogOutLinkButton from './LogOutLinkButton'
-import './Upload.css'
+import '../../index.css'
 import DragnDrop from './DragnDrop'
 import ClipboardDrop from './ClipboardDrop'
 
 const Upload = () => {
 
   return (
-    <div> 
-      <div className="top-block">
+    <> 
+      <div className="container-2">
         <Heading2 to="/" />
-        <LogOutLinkButton id="log-out-button" text="Log Out" to="/"/>
+        <LogOutLinkButton id="button-log-out" text="Log Out" to="/"/>
       </div>
+      <div className="invisible-item-2"></div>
       <ClipboardDrop/>
+      <div className="invisible-item-2"></div>
       <DragnDrop/>
-    </div>
+    </>
    
   )
 }

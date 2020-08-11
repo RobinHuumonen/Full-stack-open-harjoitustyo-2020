@@ -3,7 +3,7 @@ import { Heading3 } from '../Heading'
 import LinkButton from '../LinkButton'
 import Button from '../Button'
 import Heading2 from '../Heading'
-import '../TopBlock.css'
+import '../../index.css'
 import { logOut } from '../../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 
@@ -16,12 +16,12 @@ const AboutTopBlock = (props) => {
   }
 
   return (
-    <div className="top-block">
+    <div className="container-2">
       <Heading2 to="/"/>
       <Heading3/>
       {props.user ? 
-        <Button id="log-out-button" text="Log Out" handleClick={handleLogout}/> :
-        <LinkButton id="log-out-button" text="Log In" to="/"/>
+        <Button id="button-log-out" text="Log Out" handleClick={handleLogout}/> :
+        <LinkButton id="button-log-out" text="Log In" to="/"/>
       }
     </div>
   )

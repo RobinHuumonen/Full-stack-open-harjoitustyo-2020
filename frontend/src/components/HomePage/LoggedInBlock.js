@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoggedInBlock.css'
+import '../../index.css'
 import LoggedInUser from './LoggedInUser'
 import LinkButton from '../LinkButton'
 
@@ -17,8 +17,9 @@ const LoggedInBlock = (props) => {
   }
 
   return (
-    <div id="logged-in-block">
+    <div className="container-3">
       <LoggedInUser user={props.user} usersRecipeCount={getUsersRecipeCount()}/>
+      <div className="invisible-item"></div>
       <LinkButton id="upload-button" text="Upload Recipe" to="/upload"/>
     </div>
   )

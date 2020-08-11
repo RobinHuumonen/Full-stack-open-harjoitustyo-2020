@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import { useDropzone } from 'react-dropzone'
-import './Upload.css'
+import '../../index.css'
 import { createRecipe } from '../../reducers/recipeReducer'
 import { useDispatch } from 'react-redux'
 
@@ -28,12 +28,11 @@ function DragnDrop() {
   }
 
   return (
-    <div className="container">
-      <div {...getRootProps({className: 'dropzone'})}>
+      <div {...getRootProps({className: 'container-4'})}>
         <input {...getInputProps()} />
         <p id="drag-text">Drag 'n' drop some images here, or click to select images</p>
       </div>
-      </div>
+     
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { search } from '../../reducers/filterReducer'
-import './Filter.css'
+import '../../index.css'
 
 
 const Filter = () => {
@@ -11,13 +11,11 @@ const Filter = () => {
   }
 
   return (
-    <div className="center">
       <input
         className="search-input"
         onChange={handleChange}
         placeholder="Search"
       />
-    </div>
   )
 }
 

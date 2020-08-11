@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { H1LinkHead } from '../Heading'
 import UserForm from '../UserForm'
-import '../Log-in-and-sign-up-block.css'
+import '../../index.css'
 import { signUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
 import { setNotification } from '../../reducers/notificationReducer'
@@ -29,7 +29,7 @@ const SignUpBlock = () => {
   }
 
   return (
-    <div className="log-in-and-sign-up-block">
+    <div className="container-1">
       <H1LinkHead  to="/"/>
       <UserForm
         username={username}

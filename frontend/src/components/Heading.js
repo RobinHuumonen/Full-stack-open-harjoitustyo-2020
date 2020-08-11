@@ -1,5 +1,5 @@
 import React from 'react'
-import './Heading.css'
+import '../index.css'
 import { withRouter } from 'react-router'
 
 export const Heading = () => {

@@ -43,13 +43,15 @@ class Recipes extends React.Component {
 
     if (!this.state.renderModifyOptions) {
       return (
-        <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+        <div>
+          <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+        </div>
       )
     } else {
       return (
         <div>
-          <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
           <ModifyOptions recipe={this.state.selectedImg}/>
+          <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
         </div>
       )
     }

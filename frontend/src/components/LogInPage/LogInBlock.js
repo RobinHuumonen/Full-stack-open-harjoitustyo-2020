@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Heading } from '../Heading'
 import UserForm from '../UserForm'
 import SignUpLink from './SignUpLink'
-import '../Log-in-and-sign-up-block.css'
 import { logInUser } from '../../reducers/userReducer'
 import { nullSignUpUser } from '../../reducers/signUpReducer'
 import { useDispatch } from 'react-redux'
+import '../../index.css'
 
 const LogInBlock = () => {
   const dispatch = useDispatch()
@@ -24,8 +24,7 @@ const LogInBlock = () => {
   }
 
   return (
-    <div>
-      <div className="log-in-and-sign-up-block">
+      <div className="container-1">
       <Heading/>
       <UserForm
         username={username}
@@ -38,7 +37,6 @@ const LogInBlock = () => {
         passwordPlaceHolder = "Password"
       />
       <SignUpLink/>
-    </div>
     </div>
     
   )

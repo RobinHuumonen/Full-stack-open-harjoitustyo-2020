@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './App.css'
+import './index.css'
 
 import {
   BrowserRouter as Router,
@@ -42,21 +42,25 @@ const App = () => {
     const search = useSelector(state => state.filter)
     const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
     return (
-      <div>
+      <div className="site-wrapper">
         <Notification notification={notification}/>
         <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
-        <Recipes recipes={searchedRecipes}/>
-       {/*  <Footer/> */}
+        <main>
+          <Recipes recipes={searchedRecipes}/>
+        </main>
+        <Footer/>
       </div>
     )
   }
 
   const LogInPage = () => {
     return (
-      <div>
+      <div className="site-wrapper">
         <Notification notification={notification}/>
-        <LogInBlock/>
+        <main>
+          <LogInBlock/>
+        </main>
         <Footer/>
       </div>
     )
@@ -64,9 +68,11 @@ const App = () => {
 
   const SignUpPage = () => {
     return (
-      <div>
+      <div className="site-wrapper">
         <Notification notification={notification}/>
-        <SignUpBlock/>
+        <main>
+          <SignUpBlock/>
+        </main>
         <Footer/>
       </div>
     )
@@ -74,9 +80,11 @@ const App = () => {
 
   const UploadPage = () => {
     return (
-      <div>
+      <div className="site-wrapper">
         <Notification notification={notification}/>
-        <Upload user={user} />
+        <main>
+          <Upload user={user} />  
+        </main>
         <Footer/>
       </div>
     )
@@ -84,17 +92,18 @@ const App = () => {
 
   const AboutPage = () => {
     return (
-      <div>
+      <div className="site-wrapper">
         <AboutTopBlock user={user}/>
+        <main>
         <About/>
+        </main>
         <Footer/>
       </div>
     )
   }
 
   return (
-    <div className="page-container">
-      <div className="content-wrap">
+      <>
           <Router>
             <Switch>
 
@@ -123,8 +132,7 @@ const App = () => {
 
             </Switch>
           </Router>
-        </div>
-    </div>
+        </>
   )
 }
 

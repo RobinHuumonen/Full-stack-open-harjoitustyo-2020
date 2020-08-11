@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './UserForm.css'
 import LinkButton from './LinkButton'
+import '../index.css'
 
 const UserForm = ({
   handleSubmit,
@@ -14,7 +14,6 @@ const UserForm = ({
   passwordPlaceHolder
 }) => {
   return (
-    <div className="center">
       <form onSubmit={handleSubmit}>
           <div >
             <input
@@ -37,7 +36,6 @@ const UserForm = ({
           </div>
         <LinkButton id="login-button" text={buttonText} className="blue-box-button"  type="submit"/>
       </form>
-    </div>
   )
 }
 

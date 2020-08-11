@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router'
-import '../LinkButton.css'
+import '../../index.css'
 import { logOut } from '../../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 
