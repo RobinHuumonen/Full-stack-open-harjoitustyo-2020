@@ -18,7 +18,7 @@ const ModifyOptions = ({ recipe }) => {
   }
 
   return (
-    <div className="container-4">
+    <div className="container-5">
       <button id="delete-button" onClick={() => handleDelete(recipe.id, recipe.thumbnailCaption)}>Delete</button>
         <input
           className="white-input"

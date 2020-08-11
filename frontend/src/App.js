@@ -41,6 +41,7 @@ const App = () => {
     const usersRecipes = recipes.filter(r => r.user.username === user.username)
     const search = useSelector(state => state.filter)
     const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
+    console.log(searchedRecipes);
     return (
       <div className="site-wrapper">
         <Notification notification={notification}/>

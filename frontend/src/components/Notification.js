@@ -1,18 +1,14 @@
 import React from 'react'
+import '../index.css'
 
 const Notification = ({ notification }) => {
 
   if (!notification) {
     return null
   }
-
-  const style = {
-    border: 'solid',
-    padding: 10,
-    borderWidth: 1
-  }
+  
   return (
-    <div style={style}>
+    <div className="notification">
       {notification}
     </div>
   )
