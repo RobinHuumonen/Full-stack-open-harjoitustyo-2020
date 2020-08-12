@@ -7,20 +7,25 @@ import '../../index.css'
 
 class Recipes extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       recipes: this.props.recipes,
       renderModifyOptions: false,
-      selectedImg: {}
+      selectedImg: {},
     };
 
     this.onSelectImage = this.onSelectImage.bind(this);
 
   }
 
-  onSelectImage (index) {
+  getRecipes() {
+    const usersRecipes = this.state.recipes.filter(r => r.user.username === this.props.user.username)
+    return usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(this.props.search.toLowerCase()) > -1)
+  }
+
+  onSelectImage(index) {
     let newModRenderState
     let recipes = this.state.recipes.slice();
     let img = recipes[index];
@@ -48,14 +53,14 @@ class Recipes extends React.Component {
     if (!this.state.renderModifyOptions) {
       return (
         <div>
-          <Gallery rowHeight={436} margin={26} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+          <Gallery rowHeight={436} margin={26} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.getRecipes() } showImageCount={false}/>
         </div>
       )
     } else {
       return (
         <div>
           <ModifyOptions recipe={this.state.selectedImg}/>
-          <Gallery rowHeight={436} margin={22.5} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+          <Gallery rowHeight={436} margin={22.5} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.getRecipes() } showImageCount={false}/>
         </div>
       )
     }

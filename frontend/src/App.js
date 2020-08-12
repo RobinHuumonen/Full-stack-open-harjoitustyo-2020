@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
 import { initUser} from './reducers/userReducer'
 import { initUsers} from './reducers/usersReducer'
+import { search } from './reducers/filterReducer'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -35,20 +36,21 @@ const App = () => {
   const user = useSelector(state => state.user)
   const users = useSelector(state => state.users)
   const signUpUser = useSelector(state => state.signUpUser)
-  const notification = useSelector(state => state.notification) 
+  const notification = useSelector(state => state.notification)
+  
 
   const HomePage = () => {
-    const usersRecipes = recipes.filter(r => r.user.username === user.username)
+    const search = useSelector(state => state.filter) 
+/*     const usersRecipes = recipes.filter(r => r.user.username === user.username)
     const search = useSelector(state => state.filter)
-    const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1)
-    console.log(searchedRecipes);
+    const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1) */
     return (
       <div className="site-wrapper">
         <Notification notification={notification}/>
         <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
         <main>
-          <Recipes recipes={searchedRecipes}/>
+          <Recipes recipes={recipes} user={user} search={search}/>
         </main>
         <Footer/>
       </div>
