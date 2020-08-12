@@ -16,3 +16,4 @@ Pvm | Tunnit / h | Toimet
 7.8. | 4.19 | Kuvan poisto ja uudelleen nimeäminen ja ja virheiden korjauksia.
 8.8. | 1.07 | Placeholdertekstit syötekentille ja Flexbox CSS:n opettelu.
 10.8. | 3.67 | Asettelu.
+11.8. | 3.08 | Asettelu ja virheiden korjaus.

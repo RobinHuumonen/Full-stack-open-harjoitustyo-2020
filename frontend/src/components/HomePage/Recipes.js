@@ -3,6 +3,7 @@ import Gallery from 'react-grid-gallery';
 import { connect } from 'react-redux'
 import { updateRecipe, removeRecipe } from '../../reducers/recipeReducer'
 import ModifyOptions from './ModifyOptions'
+import '../../index.css'
 
 class Recipes extends React.Component {
 
@@ -44,14 +45,14 @@ class Recipes extends React.Component {
     if (!this.state.renderModifyOptions) {
       return (
         <div>
-          <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+          <Gallery rowHeight={436} margin={26} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
         </div>
       )
     } else {
       return (
         <div>
           <ModifyOptions recipe={this.state.selectedImg}/>
-          <Gallery backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
+          <Gallery rowHeight={436} margin={22.5} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.props.recipes } showImageCount={false}/>
         </div>
       )
     }

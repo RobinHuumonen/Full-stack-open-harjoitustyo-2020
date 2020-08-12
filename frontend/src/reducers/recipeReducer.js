@@ -89,8 +89,8 @@ export const createRecipe = (imageData, name = null) => {
         const dataToServer = {
           src,
           thumbnail: src,
-          thumbnailWidth: 258,
-          thumbnailHeight: 258,
+          thumbnailWidth: 436,
+          thumbnailHeight: 436,
           caption: thumbnailCaption,
           thumbnailCaption
         }
