@@ -33,6 +33,9 @@ class Recipes extends React.Component {
       newModRenderState = false
     else 
       newModRenderState = true
+
+    window.scrollTo(0, 0)
+    
     this.setState({
       recipes: recipes,
       renderModifyOptions: newModRenderState,

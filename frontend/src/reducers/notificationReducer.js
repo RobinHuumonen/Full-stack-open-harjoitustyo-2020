@@ -22,6 +22,9 @@ export const setNotification = (content, time) => {
       clearTimeout(timeoutId)
     }
 
+    window.scrollTo(0, 0)
+
+
     timeoutId = setTimeout(() => {
       dispatch({
         type: 'CLEAR_NOTIFICATION'

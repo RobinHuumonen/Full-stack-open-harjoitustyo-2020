@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone'
 import '../../index.css'
 import { createRecipe } from '../../reducers/recipeReducer'
 import { useDispatch } from 'react-redux'
+import { setNotification } from '../../reducers/notificationReducer'
 
 function DragnDrop() {
   const dispatch = useDispatch()
@@ -21,16 +22,16 @@ function DragnDrop() {
     },
   })
 
-  if (files.length > 0) {
-    for (let i = 0; i < files.length; i++) {
-      dispatch(createRecipe(files[i]))
-    }
+  if (files.length === 1) {
+    dispatch(createRecipe(files[0]))
+  } else if (files.length > 1) {
+    dispatch(setNotification("Too many files!", 5))
   }
 
   return (
       <div {...getRootProps({className: 'container-4'})}>
         <input {...getInputProps()} />
-        <p id="drag-text">Drag 'n' drop some images here, or click to select images</p>
+        <p id="drag-text">Drag 'n' drop (1) image here, or click to select image</p>
       </div>
      
   );
