@@ -21,7 +21,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initRecipes} from './reducers/recipeReducer'
 import { initUser} from './reducers/userReducer'
 import { initUsers} from './reducers/usersReducer'
-import { search } from './reducers/filterReducer'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -40,17 +39,13 @@ const App = () => {
   
 
   const HomePage = () => {
-    const search = useSelector(state => state.filter) 
-/*     const usersRecipes = recipes.filter(r => r.user.username === user.username)
-    const search = useSelector(state => state.filter)
-    const searchedRecipes = usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(search.toLowerCase()) > -1) */
     return (
       <div className="site-wrapper">
         <Notification notification={notification}/>
         <HomeTopBlock />
         <LoggedInBlock user={user} users={users}/>
         <main>
-          <Recipes recipes={recipes} user={user} search={search}/>
+          <Recipes recipes={recipes} user={user} dispatch={dispatch}/>
         </main>
         <Footer/>
       </div>

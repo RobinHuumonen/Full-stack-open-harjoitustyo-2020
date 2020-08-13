@@ -17,3 +17,4 @@ Pvm | Tunnit / h | Toimet
 8.8. | 1.07 | Placeholdertekstit syötekentille ja Flexbox CSS:n opettelu.
 10.8. | 3.67 | Asettelu.
 11.8. | 3.08 | Asettelu ja virheiden korjaus.
+12.8. | 4.5 | Kuvien asettelu, haun korjaus, notifikaation tyylin ja kuvan muokkausasetusten ehdollinen renderöinti.

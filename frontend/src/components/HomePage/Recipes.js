@@ -1,9 +1,30 @@
 import React from 'react'
 import Gallery from 'react-grid-gallery';
 import { connect } from 'react-redux'
-import { updateRecipe, removeRecipe } from '../../reducers/recipeReducer'
+import { set, unset } from '../../reducers/renderModReducer'
 import ModifyOptions from './ModifyOptions'
 import '../../index.css'
+import { setNotification } from '../../reducers/notificationReducer'
+
+const createHandlers = function(dispatch) {
+  const disSet = function() {
+    dispatch(set())
+  };
+
+  const disUnset = function() {
+    dispatch(unset())
+  };
+
+  const disSetNotification = function(content, time) {
+    dispatch(setNotification(content, time))
+  };
+
+  return {
+    disSet,
+    disUnset,
+    disSetNotification
+  };
+}
 
 class Recipes extends React.Component {
 
@@ -14,8 +35,10 @@ class Recipes extends React.Component {
       recipes: this.props.recipes,
       renderModifyOptions: false,
       selectedImg: {},
+      top: window.pageYOffset || document.documentElement.scrollTop,
+      left:  window.pageXOffset || document.documentElement.scrollLeft,
     };
-
+    this.handlers = createHandlers(this.props.dispatch);
     this.onSelectImage = this.onSelectImage.bind(this);
 
   }
@@ -26,41 +49,64 @@ class Recipes extends React.Component {
   }
 
   onSelectImage(index) {
-    let newModRenderState
-    let recipes = this.state.recipes.slice();
-    let img = recipes[index];
-    if (img.hasOwnProperty("isSelected"))
+    this.setState({
+      top: window.pageYOffset || document.documentElement.scrollTop,
+      left:  window.pageXOffset || document.documentElement.scrollLeft
+    })
+    const recipes = this.state.recipes.slice();
+    const img = recipes[index];
+
+    if (img.hasOwnProperty("isSelected")) {
       img.isSelected = !img.isSelected;
-    else
+    } else {
       img.isSelected = true;
+    }
 
-    if (this.state.renderModifyOptions) 
-      newModRenderState = false
-    else 
-      newModRenderState = true
+    if (!this.props.renderMod) {
+      this.handlers.disSet()
+      window.scrollTo(0, 0)
+    } else if (this.props.renderMod) {
+      this.handlers.disUnset()
+    }
 
-    window.scrollTo(0, 0)
-    
+    let allSelected = recipes.filter(e => e.hasOwnProperty("isSelected") && e.isSelected === true)
+
+    if (allSelected.length > 1) {
+      allSelected.forEach(e => e.isSelected = false)
+      this.handlers.disSetNotification("Select only 1 image for modification", 5)
+    }
+
     this.setState({
       recipes: recipes,
-      renderModifyOptions: newModRenderState,
-      selectedImg: img
+      selectedImg: img,
     });
+  }
+
+  updateStateFromChild = (object) => {
+    this.setState({
+      recipes: object
+    })
   }
 
   render () {
 
-    if (!this.state.renderModifyOptions) {
+    if (!this.props.renderMod) {
       return (
         <div>
-          <Gallery rowHeight={436} margin={26} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.getRecipes() } showImageCount={false}/>
+          <Gallery rowHeight={436} margin={26} backdropClosesModal={true} onSelectImage={this.onSelectImage} 
+            images={ this.getRecipes() } showImageCount={false}
+          />
         </div>
       )
     } else {
       return (
         <div>
-          <ModifyOptions recipe={this.state.selectedImg}/>
-          <Gallery rowHeight={436} margin={22.5} backdropClosesModal={true} onSelectImage={this.onSelectImage} images={ this.getRecipes() } showImageCount={false}/>
+          <ModifyOptions updateStateFromChild={this.updateStateFromChild} recipes={this.state.recipes} 
+            recipe={this.state.selectedImg} top={this.state.top} left={this.state.left}
+          />
+          <Gallery rowHeight={436} margin={22.5} backdropClosesModal={true} onSelectImage={this.onSelectImage} 
+            images={ this.getRecipes() } showImageCount={false}
+          />
         </div>
       )
     }
@@ -68,18 +114,14 @@ class Recipes extends React.Component {
 
 }
 
-const mapDispatchToProps = () => {
+const mapStateToProps = state => {
   return {
-    updateRecipe, removeRecipe
-
-  };
-};
-
-const mapStateToProps = state => ({
-  recipes: state.recipes
-});
+    recipes: state.recipes,
+    renderMod: state.renderMod,
+    search: state.filter
+  }
+}
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps()
 )(Recipes);
