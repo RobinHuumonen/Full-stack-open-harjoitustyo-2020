@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import './index.css'
 
 import {
-  BrowserRouter as Router,
-  Switch, Route, Redirect
+  HashRouter as Router,
+  Switch, Route, Redirect,
 } from "react-router-dom"
 
 import LogInBlock from './components//LogInPage/LogInBlock'
