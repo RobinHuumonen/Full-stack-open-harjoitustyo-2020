@@ -19,3 +19,4 @@ Pvm | Tunnit / h | Toimet
 11.8. | 3.08 | Asettelu ja virheiden korjaus.
 12.8. | 4.5 | Kuvien asettelu, haun korjaus, notifikaation tyylin ja kuvan muokkausasetusten ehdollinen renderöinti.
 13.8. | 2.76 | Kuvan muokkausasetusten renderöinti ja Herokun lomakevirhe.
+Yht. | 61.25
