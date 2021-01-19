@@ -44,8 +44,7 @@ class Recipes extends React.Component {
   }
 
   getRecipes() {
-    const usersRecipes = this.state.recipes.filter(r => r.user.username === this.props.user.username)
-    return usersRecipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(this.props.search.toLowerCase()) > -1)
+    return this.state.recipes.filter(r => r.thumbnailCaption.toLowerCase().indexOf(this.props.search.toLowerCase()) > -1)
   }
 
   onSelectImage(index) {

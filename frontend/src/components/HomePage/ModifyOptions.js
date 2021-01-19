@@ -1,8 +1,9 @@
 import React, { useState, } from 'react'
 import '../../index.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateRecipe, removeRecipe } from '../../reducers/recipeReducer'
 import { unset } from '../../reducers/renderModReducer'
+import { initUsers} from '../../reducers/usersReducer'
 
 
 const ModifyOptions = ({ 
@@ -15,6 +16,8 @@ const ModifyOptions = ({
   const dispatch = useDispatch()
   const [name, setName] = useState('')
 
+  const user = useSelector(state => state.user)
+
   const handleRenaming = (recipe) => {
     const newRecipe = { ...recipe, thumbnailCaption: name, caption: name}
     dispatch(updateRecipe(newRecipe, recipe.thumbnailCaption))
@@ -23,6 +26,7 @@ const ModifyOptions = ({
 
   const handleDelete = (id, name) => {
     dispatch(removeRecipe(id, name))
+    dispatch(initUsers(user))
     dispatch(unset())
   }
 

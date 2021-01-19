@@ -1,18 +1,23 @@
 import React, { useState }  from 'react'
 import '../../index.css'
 import { createRecipe } from '../../reducers/recipeReducer'
-import { useDispatch } from 'react-redux'
+import { initUsers} from '../../reducers/usersReducer'
+import { useDispatch, useSelector } from 'react-redux'
 
 function ClipboardDrop() {
   const dispatch = useDispatch()
   const [file, setFile] = useState(null)
   const [fileName, setFileName] = useState('')
 
+  const user = useSelector(state => state.user)
+
   if (file) {
     if (!fileName) {
       dispatch(createRecipe(file, new Date()))
+      dispatch(initUsers(user))
     }
     dispatch(createRecipe(file, fileName))
+    dispatch(initUsers(user))
     setFile(null)
     setFileName('')
   }

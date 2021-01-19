@@ -1,6 +1,5 @@
 import recipeService from '../services/recipeService'
 import { setNotification } from './notificationReducer'
-import { initUsers } from './usersReducer'
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -100,7 +99,6 @@ export const createRecipe = (imageData, name = null) => {
           type: 'CREATE_RECIPE',
           data
         })
-        dispatch(initUsers())
         dispatch(setNotification(`Recipe '${data.thumbnailCaption}' added!`, 5))
       }
     } catch (error) {
@@ -110,14 +108,16 @@ export const createRecipe = (imageData, name = null) => {
 }
 
 
-export const initRecipes = () => {
+export const initRecipes = (user) => {
   return async dispatch => {
     try {
       const data = await recipeService.getAll()
-      dispatch({
-        type: 'INIT_RECIPES',
-        data
-      })
+      if (user) {
+        dispatch({
+          type: 'INIT_RECIPES',
+          data: data.filter(r => r.user.username === user.username)
+        })
+      }
     } catch (error) {
       dispatch(setNotification(error.message, 5))
     }

@@ -9,13 +9,18 @@ const reducer = (state = null, action) => {
   }
 }
 
-export const initUsers = () => {
+export const initUsers = (user) => {
   return async dispatch => {
     const users = await userService.getAll()
+    if (user) {
+      const useri = users.find(u => u.username === user.username)
+      console.log(useri.recipes.length);
       dispatch({
         type: 'INIT_USERS',
-        users
+        users: useri.recipes.length
       })
+    }
+
     
   }
 }

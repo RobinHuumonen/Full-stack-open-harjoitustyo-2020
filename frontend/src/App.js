@@ -26,14 +26,23 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(initRecipes())
+    document.title = "Recipet"
+ }, []);
+
+  useEffect(() => {
     dispatch(initUser())
-    dispatch(initUsers())
   }, [dispatch])
 
-  const recipes = useSelector(state => state.recipes)
   const user = useSelector(state => state.user)
-  const users = useSelector(state => state.users)
+
+  useEffect(() => {
+    dispatch(initRecipes(user))
+    dispatch(initUsers(user))
+  }, [dispatch, user])
+  
+
+  const recipes = useSelector(state => state.recipes)
+  const usersRecipeCount = useSelector(state => state.users)
   const signUpUser = useSelector(state => state.signUpUser)
   const notification = useSelector(state => state.notification)
   
@@ -43,7 +52,7 @@ const App = () => {
       <div className="site-wrapper">
         <Notification notification={notification}/>
         <HomeTopBlock />
-        <LoggedInBlock user={user} users={users}/>
+        <LoggedInBlock user={user} usersRecipeCount={usersRecipeCount}/>
         <main>
           <Recipes recipes={recipes} user={user} dispatch={dispatch}/>
         </main>

@@ -2,7 +2,8 @@ import React, { useState }  from 'react'
 import { useDropzone } from 'react-dropzone'
 import '../../index.css'
 import { createRecipe } from '../../reducers/recipeReducer'
-import { useDispatch } from 'react-redux'
+import { initUsers} from '../../reducers/usersReducer'
+import { useDispatch, useSelector } from 'react-redux'
 import { setNotification } from '../../reducers/notificationReducer'
 
 function DragnDrop() {
@@ -22,8 +23,11 @@ function DragnDrop() {
     },
   })
 
+  const user = useSelector(state => state.user)
+
   if (files.length === 1) {
     dispatch(createRecipe(files[0]))
+    dispatch(initUsers(user))
   } else if (files.length > 1) {
     dispatch(setNotification("Too many files!", 5))
   }
